@@ -7,6 +7,8 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-      - name: List available files
+      - name: List snapshots
         run: |
-          curl -s "https://download.linphone.org/releases/windows/sdk/" | grep -i "whl\|python\|cp31"
+          curl -s "https://download.linphone.org/snapshots/linphone-python/" 
+          echo "---"
+          curl -s "https://download.linphone.org/snapshots/" | grep -i "python\|whl"
