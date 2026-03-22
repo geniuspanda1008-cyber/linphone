@@ -1,0 +1,21 @@
+name: Download Linphone Wheel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download whl file
+        run: |
+          curl -L -o linphone-5.2.0-cp311-cp311-win_amd64.whl \
+            "https://download.linphone.org/releases/windows/sdk/linphone-5.2.0-cp311-cp311-win_amd64.whl"
+          ls -lh *.whl
+
+      - name: Upload as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linphone-wheel
+          path: linphone-5.2.0-cp311-cp311-win_amd64.whl
+          retention-days: 7
