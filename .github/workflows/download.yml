@@ -9,6 +9,9 @@ jobs:
     steps:
       - name: List snapshots
         run: |
-          curl -s "https://download.linphone.org/snapshots/linphone-python/" 
-          echo "---"
-          curl -s "https://download.linphone.org/snapshots/" | grep -i "python\|whl"
+          echo "=== 5.4 folder ==="
+          curl -s "https://download.linphone.org/snapshots/linphone-python/5.4/" | grep -i "whl\|win"
+          echo "=== 5.5 folder ==="
+          curl -s "https://download.linphone.org/snapshots/linphone-python/5.5/" | grep -i "whl\|win"
+          echo "=== linphone-python folder ==="
+          curl -s "https://download.linphone.org/snapshots/linphone-python/linphone-python/" | grep -i "whl\|win"
