@@ -7,14 +7,6 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-      - name: Download whl file
+      - name: List available files
         run: |
-         curl -L -o linphone-5.2.0-cp310-cp310-win_amd64.whl \
-           "https://download.linphone.org/releases/windows/sdk/linphone-5.2.0-cp310-cp310-win_amd64.whl"
-
-      - name: Upload as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: linphone-wheel
-          path: linphone-5.2.0-cp310-cp310-win_amd64.whl
-          retention-days: 7
+          curl -s "https://download.linphone.org/releases/windows/sdk/" | grep -i "whl\|python\|cp31"
